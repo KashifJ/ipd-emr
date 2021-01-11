@@ -1,0 +1,27 @@
+<div class="sih-login-wrapper">
+  <div class="sih-login-logo"></div>
+  <form nz-form class="sih-login-form">
+    <nz-form-item class="sih-login-input">
+      <nz-form-label>User Name</nz-form-label>
+      <nz-form-control nzErrorTip="Please input your username!" nz-col [nzSpan]="24">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="sih-login-input">
+      <nz-form-label>Password</nz-form-label>
+      <nz-form-control nzErrorTip="Please input your Password!" nz-col [nzSpan]="24">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <button nz-button class="login-form-button sih-btn is-primary" [nzType]="'primary'">Log in</button>
+    <div nz-row class="text-center">
+      <div nz-col [nzSpan]="24">
+        <a class="login-form-forgot">Forgot Password</a>
+      </div>
+    </div>
+  </form>
+</div>

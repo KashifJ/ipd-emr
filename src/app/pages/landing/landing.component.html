@@ -1,0 +1,63 @@
+<div class="landing">
+
+  <div nz-row class="sih-title-row">
+    <div nz-col nzSpan="12">
+      <h2 nz-typography class="sih-title">In-Patients</h2>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-input-group class="sih-search sih-table-search">
+        <input type="text" nz-input placeholder="Search ..." class="sih-input" />
+      </nz-input-group>
+    </div>
+  </div>
+
+  <nz-table #basicTable [nzData]="listOfData" class="sih-table sih-landing-table" [nzScroll]="{ y: 'calc(100vh - 272px)' }" [nzShowPagination]="false" [nzLoadingIndicator]="true">
+    <thead>
+      <tr>
+        <th>Sr No.</th>
+        <th>Location</th>
+        <th>MEWS</th>
+        <th>MR No.</th>
+        <th>Patient Name</th>
+        <th>Age</th>
+        <th>Admited On</th>
+        <th>LOS</th>
+        <th>Admiting Physician</th>
+        <th>Consulting Physician</th>
+        <th>Complaints</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ data.location }}</td>
+        <td>{{ data.mews }}</td>
+        <td>{{ data.mrno }}</td>
+        <td [class]="[data.gender, 'sih-ptn-name']">
+          <a routerLink="#">
+            <nz-avatar [nzSize]="32" nzIcon="user" class="sih-avatar sih-ptn-avatar" nzSrc="../../../assets/images/user-img.jpg"></nz-avatar>
+            <span>{{ data.ptnname }}</span>
+          </a>
+        </td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.admitedon }}</td>
+        <td>{{ data.los }}</td>
+        <td>{{ data.admtingphy }}</td>
+        <td>{{ data.constphy }}</td>
+        <td>{{ data.complaints }}</td>
+        <td nzRight>
+          <button nz-button nzType="primary" nzSize="small" class="sih-btn is-primary is-small">Switch Bed</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <div nz-row class="sih-total-records-row">
+    <div nz-col nzSpan="12">{{ totalRecords() }} Records Found</div>
+    <div nz-col nzSpan="12" class="text-right">
+      <div nz-typography class="sih-typography sih-total-male">Male <strong>({{ totalMale() }})</strong></div>
+      <div nz-typography class="sih-typography sih-total-female">Female <strong>({{totalFemale()}})</strong></div>
+    </div>
+  </div>
+
+</div>

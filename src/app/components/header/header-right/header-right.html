@@ -1,0 +1,36 @@
+<div class="header-right">
+
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Block-Floor" class="sih-select sih-header-select sih-select-block-floor">
+        <nz-option *ngFor="let data of listOfBlockFloors" [nzLabel]="data.nzLabel" [nzValue]="data.nzValue"></nz-option>
+    </nz-select>
+
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Wing" class="sih-select sih-header-select sih-select-wing-floor">
+        <nz-option *ngFor="let data of listOfWing" [nzLabel]="data.nzLabel" [nzValue]="data.nzValue"></nz-option>
+    </nz-select>
+
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Primary Physician" class="sih-select sih-header-select sih-select-physician">
+        <nz-option *ngFor="let data of listOfPhysician" [nzLabel]="data.nzLabel" [nzValue]="data.nzValue"></nz-option>
+    </nz-select>
+
+    <nz-input-group class="sih-search sih-header-search">
+        <input type="text" nz-input placeholder="Enter MR No." class="sih-input" />
+    </nz-input-group>
+
+    <div class="sih-user-avatar">
+        <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+            <nz-avatar [nzSize]="42" nzIcon="user" class="sih-avatar" nzSrc="../../../assets/images/user-img.jpg"></nz-avatar>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu" class="sih-dropdown">
+            <ul nz-menu class="sih-dropdown-menu">
+              <li nz-menu-item>
+                  <a routerLink="#" nz-typography class="sih-typography-link" [(nzContent)]="settingsMenuItem"></a>
+                </li>
+              <li nz-menu-divider></li>
+              <li nz-menu-item>
+                <a routerLink="/login" nz-typography class="sih-typography-link" [(nzContent)]="logoutMenuItem"></a>
+                </li>
+            </ul>
+          </nz-dropdown-menu>
+    </div>
+
+</div>
